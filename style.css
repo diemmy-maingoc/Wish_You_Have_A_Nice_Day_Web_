@@ -25,7 +25,7 @@ body.dark-mode {
 }
 
 /* Bước 3: Áp dụng các biến 
-  Giờ đây, chúng ta dùng var(--ten-bien) thay vì mã màu
+  Giờ đây, dùng var(--ten-bien) thay vì mã màu
 */
 body {
     background-color: var(--bg-color); /* Dùng biến */
@@ -91,14 +91,14 @@ h1 {
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px var(--shadow-color);
 
-    /* --- THÊM CÁC DÒNG NÀY VÀO --- */
+    
     display: inline-flex;          /* Để icon và chữ nằm ngang */
     align-items: center;    /* Căn giữa theo chiều dọc */
     justify-content: center; /* Căn giữa theo chiều ngang */
     gap: 8px;               /* Khoảng cách 8px giữa icon và chữ */
 }
 
-/* Trạng thái khi di chuột vào (bạn đã có) */
+/* Trạng thái khi di chuột vào */
 #new-quote-btn:hover {
     background-color: var(--accent-color-hover);
     box-shadow: 0 4px 10px var(--shadow-color);
@@ -116,7 +116,7 @@ h1 {
 /* --- THÊM LUẬT MỚI CHO ICON --- */
 .heart-icon {
     /* SVG sẽ tự động lấy màu 'color: white' từ nút cha */
-    /* Chúng ta chỉ cần chỉnh lại vị trí 1 chút cho cân bằng */
+    /* Chỉ cần chỉnh lại vị trí 1 chút cho cân bằng */
     transform: translateY(-1px);
 }
 
