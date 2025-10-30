@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Nunito:wght@400;700&display=swap');
+
+/* Bước 1: Định nghĩa các biến màu cho Light Mode (mặc định)
+  :root là nơi chứa các biến toàn cục
+*/
+:root {
+    --bg-color: #F7F3E8;          /* Màu Beige Kem (ấm) */
+    --paper-color: #FEFDFB;      /* Màu Trắng Ngà (giấy) */
+    --text-color: #3D3D3D;       /* Màu Xám Đen (chữ) */
+    --accent-color: #E5A7B4;     /* Màu Hồng Tro (Dusty Rose) - màu nhấn */
+    --accent-color-hover: #D98FA0; /* Màu nhấn khi hover */
+    --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Bước 2: Định nghĩa lại các biến cho Dark Mode
+  Khi body có class .dark-mode, các biến này sẽ "ghi đè" lên :root
+*/
+body.dark-mode {
+    --bg-color: #2B2B3A;          /* Màu Nền Xám Xanh Đen (rất tối) */
+    --paper-color: #39394A;      /* Màu "Giấy" (tối) */
+    --text-color: #EAEAEA;       /* Màu Chữ Trắng Ngà */
+    --accent-color: #E5A7B4;     /* Màu Hồng Tro (vẫn nổi bật) */
+    --accent-color-hover: #D98FA0;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Bước 3: Áp dụng các biến 
+  Giờ đây, chúng ta dùng var(--ten-bien) thay vì mã màu
+*/
+body {
+    background-color: var(--bg-color); /* Dùng biến */
+    color: var(--text-color);        /* Dùng biến */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    /* Thêm transition để chuyển màu nền mượt mà */
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.container {
+    text-align: center;
+    max-width: 500px;
+    padding: 30px 40px;
+    perspective: 1000px; 
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--accent-color); /* Dùng màu nhấn cho tiêu đề */
+}
+
+/* Hộp "trang sách" */
+.quote-box {
+    background: var(--paper-color); /* Dùng biến */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px var(--shadow-color); /* Dùng biến */
+    min-height: 150px;
+    padding: 25px;
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Thêm transition cho "giấy" */
+    transition: background-color 0.4s ease;
+}
+
+#quote-text {
+    font-family: 'Lato', serif;
+    font-size: 19px;
+    font-style: normal;
+    line-height: 1.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Nút bấm (dùng màu nhấn) */
+#new-quote-btn {
+    background-color: var(--accent-color);
+    color: white; /* SVG sẽ tự động nhận MÀU NÀY */
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px var(--shadow-color);
+
+    /* --- THÊM CÁC DÒNG NÀY VÀO --- */
+    display: inline-flex;          /* Để icon và chữ nằm ngang */
+    align-items: center;    /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    gap: 8px;               /* Khoảng cách 8px giữa icon và chữ */
+}
+
+/* Trạng thái khi di chuột vào (bạn đã có) */
+#new-quote-btn:hover {
+    background-color: var(--accent-color-hover);
+    box-shadow: 0 4px 10px var(--shadow-color);
+    transform: translateY(-2px); /* Nút nhô lên */
+}
+
+/* Trạng thái khi NHẤN GIỮ nút */
+#new-quote-btn:active {
+    background-color: var(--accent-color-hover); /* Giữ nguyên màu đậm */
+    box-shadow: 0 1px 3px var(--shadow-color);  /* Giảm bóng, tạo cảm giác bị ấn xuống */
+    transform: translateY(1px); /* Di chuyển nút xuống 1px */
+    transition: all 0.1s ease; /* Làm hiệu ứng nhấn nhanh hơn */
+}
+
+/* --- THÊM LUẬT MỚI CHO ICON --- */
+.heart-icon {
+    /* SVG sẽ tự động lấy màu 'color: white' từ nút cha */
+    /* Chúng ta chỉ cần chỉnh lại vị trí 1 chút cho cân bằng */
+    transform: translateY(-1px);
+}
+
+/* --- Hiệu ứng lật trang (Giữ nguyên) --- */
+.turning-out {
+    transform: rotateY(-90deg);
+    opacity: 0;
+}
+.turning-in {
+    transform: rotateY(90deg);
+    opacity: 0;
+}
+
+
+/* --- CSS CHO CÔNG TẮC DARK MODE --- */
+.theme-switch-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.theme-switch {
+    display: inline-block;
+    height: 26px;
+    position: relative;
+    width: 50px;
+}
+.theme-switch input {
+    display: none;
+}
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.4s;
+}
+.slider:before {
+    background-color: #fff;
+    bottom: 3px;
+    content: "";
+    height: 20px;
+    left: 3px;
+    position: absolute;
+    transition: 0.4s;
+    width: 20px;
+}
+input:checked + .slider {
+    background-color: var(--accent-color); /* Dùng màu nhấn khi "bật" */
+}
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+.slider.round {
+    border-radius: 34px;
+}
+.slider.round:before {
+    border-radius: 50%;
+}
