@@ -25,7 +25,7 @@ body.dark-mode {
 }
 
 /* Bước 3: Áp dụng các biến 
-  Giờ đây, dùng var(--ten-bien) thay vì mã màu
+  Dùng var(--ten-bien) thay vì mã màu
 */
 body {
     background-color: var(--bg-color); /* Dùng biến */
