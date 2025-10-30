@@ -4,13 +4,6 @@
   A simple, gentle web app designed to give you a positive, healing message for your day.
 </p>
 
-<p align="center">
-  <img src="LINK_ANH_DEMO" alt="Project Demo" width="600px">
-</p>
-
-<p align="center">
-  <strong>🚀 View the live demo here: [LINK_GITHUB_PAGES] 🚀</strong>
-</p>
 
 ---
 
@@ -33,17 +26,9 @@ This project is built purely with vanilla web technologies (no frameworks):
 
 This is the initial version of a project intended for long-term development, focusing on mental well-being and healing. Future plans may include:
 
-* [ ] Fetching quotes from an external API.
-* [ ] Adding categories for messages (e.g., motivation, forgiveness, peace).
-* [ ] Adding optional background ambient music.
-* [ ] Developing a small blog section for sharing thoughts on psychology.
+* [ ] **User-Submitted Quotes:** Allow users to input their own favorite quotes, save them, and include them in the random message generator.
+* [ ] **External API Integration:** Fetching a wider variety of quotes from an external API.
+* [ ] **Ambient Music:** Adding optional, relaxing background music.
+* [ ] **Blog Section:** Developing a small blog for sharing thoughts on psychology.
 
-## 💡 How to Run
 
-No complex setup is required. Simply:
-
-1.  Clone this repository to your local machine:
-    ```bash
-    git clone [https://github.com/YOUR-USERNAME/REPO-NAME.git](https://github.com/YOUR-USERNAME/REPO-NAME.git)
-    ```
-2.  Navigate into the project directory and open the `index.html` file in your browser.
